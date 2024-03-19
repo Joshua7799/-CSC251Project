@@ -1,8 +1,14 @@
 import java.util.Scanner;
+import java.util.*; 
+import java.io.*;
 
 public class Project_joshua_torres{
 
    public static void main(String[] args){
+   
+   File file = new File("PolicyInformation.txt"); //The file   
+   
+   Scanner fileReader = new Scanner(file); //scanner for the file input
    
    //variables
    int policyNum;
@@ -14,37 +20,33 @@ public class Project_joshua_torres{
    double heightInches;
    double weightPounds;
    
-   //scanner for input
-   Scanner keyboard = new Scanner(System.in);
+   ArrayList<Policy> list = new ArrayList<Policy>(); //array list for the file info
    
-   //asks for input, assigns it to the appropriate variable for all info
-   System.out.print("Please enter the Policy Number: ");
-   policyNum = keyboard.nextInt();
+   while(fileReader.hasNext()){
+      policyNum = fileReader.nextInt();
+      fileReader.nextLine();
+      
+      provider = fileReader.nextLine();
    
-   System.out.print("Please enter the Provider Name: ");
-   keyboard.nextLine();
-   provider = keyboard.nextLine();
+      first = fileReader.next();
    
-   System.out.print("Please enter the Policyholder’s First Name: ");
-   first = keyboard.next();
+      last = fileReader.next();
    
-   System.out.print("Please enter the Policyholder’s Last Name: ");
-   last = keyboard.next();
+      ageYears = fileReader.nextInt();
+
+      smoking = fileReader.next();
    
-   System.out.print("Please enter the Policyholder’s Age: ");
-   ageYears = keyboard.nextInt();
+      heightInches = fileReader.nextDouble();   
+
+      weightPounds = fileReader.nextDouble();
    
-   System.out.print("Please enter the Policyholder’s Smoking Status (smoker/non-smoker): ");
-   smoking = keyboard.next();
+      //creates class using the info
+      Policy policy = new Policy(policyNum, provider, first, last, ageYears, smoking, heightInches, weightPounds);
    
-   System.out.print("Please enter the Policyholder’s Height (in inches): ");
-   heightInches = keyboard.nextDouble();
+      list.add(policy);
+   }
    
-   System.out.print("Please enter the Policyholder’s Weight (in pounds): ");
-   weightPounds = keyboard.nextDouble();
-   
-   //creates class using the info
-   Policy policy = new Policy(policyNum, provider, first, last, ageYears, smoking, heightInches, weightPounds);
+   fileReader.close();
    
    //displays all info
    System.out.println("\nPolicy Number: " + policy.getPolicyNumber());
