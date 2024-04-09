@@ -3,6 +3,7 @@ public class Policy{
 //Variables
 private int policyNumber;
 private String providerName;
+private double price = 600;
 
 //no-arg constructor
 public Policy(){
@@ -78,8 +79,6 @@ method for price calculation output
 */
 public double price(){
 
-double price = 600;
-
 if(getAge() > 50){
 
    price = price + 75; 
@@ -98,8 +97,19 @@ if(BMI() > 35){
 
 }
 
-return price;
+return price
 
+}
+
+/**
+toString method
+@return all the info for toString
+*/
+@Override
+public String toString(){
+   
+return "\n\nPolicy Number: " + policyNumber + "\nProvider Name: " + providerName + policyHolder.toString() + String.format("\nPolicy Price: $" + "%,.2f",price);
+   
 }
 
 }

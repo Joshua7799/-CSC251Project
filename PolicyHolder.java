@@ -7,6 +7,7 @@ private int age;
 private String smokingStatus;
 private double height;
 private double weight;
+private double bmi;
 
 public PolicyHolder(){
 
@@ -156,11 +157,20 @@ Method for BMI calculation
 */
 public double BMI(){
 
-double bmi;
-
 bmi = (weight * 703)/(height * height);
 
 return bmi;
+
+}
+
+/**
+toString method
+@return all the info for toString
+*/
+@Override
+public String toString(){
+   
+return  "\nPolicyholder’s First Name: " + firstName + "\nPolicyholder’s Last Name: " + lastName + "\nPolicyholder’s Age: " + age + "\nPolicyholder’s Smoking Status: " + smokingStatus + "\nPolicyholder’s Height: " + height + "\nPolicyholder’s Weight: " + weight + String.format("\nPolicyholder’s BMI: " + "%,.2f",bmi);
 
 }
 
