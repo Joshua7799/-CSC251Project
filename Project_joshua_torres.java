@@ -68,22 +68,13 @@ public class Project_joshua_torres{
    //displays all info
    for(Policy policy : info){
    
-      System.out.println("\nPolicy Number: " + policy.getPolicyNumber());
-      System.out.println("Provider Name: " + policy.getProviderName());
-      System.out.println("Policyholder’s First Name: " + policy.getFirstName());
-      System.out.println("Policyholder’s Last Name: " + policy.getLastName());
-      System.out.println("Policyholder’s Age: " + policy.getAge());
-      System.out.println("Policyholder’s Smoking Status: " + policy.getSmokingStatus());
-      System.out.println("Policyholder’s Height: " + policy.getHeight() + " inches");
-      System.out.println("Policyholder’s Weight: " + policy.getWeight() + " pounds");
-      System.out.printf("Policyholder’s BMI: $%.2f", policy.BMI());
-      System.out.printf("\nPolicy Price: $%.2f", policy.price());
-      System.out.println();
+      System.out.println(policy);
    
    }
    
-   //outputs smoker counts
-   System.out.print("\nThe number of policies with a smoker is: " + smokerCount);
+   //outputs final info
+   System.out.println("\n\nThere were " + Policy.policyCountTotal() + " policy objects created.");
+   System.out.print("The number of policies with a smoker is: " + smokerCount);
    System.out.println("\nThe number of policies with a non-smoker is: " + nonSmokerCount);
    
    //catch for try

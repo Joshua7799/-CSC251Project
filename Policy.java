@@ -3,7 +3,8 @@ public class Policy{
 //Variables
 private int policyNumber;
 private String providerName;
-private double price = 600;
+private PolicyHolder policyHolder;
+private double price;
 private static int policyCount = 0;
 
 //no-arg constructor
@@ -11,7 +12,9 @@ public Policy(){
 
 policyNumber = 0;
 providerName = "empty";
+policyHolder = new PolicyHolder();
 policyCount++;
+price = price();
 
 }
 
@@ -26,11 +29,13 @@ arg constructor
 @param heightInches: the persons height
 @param weightPounds: the persons weight
 */
-public Policy(int policy, String provider){
+public Policy(int policy, String provider, String first, String last, int ageYears, String smoking, double heightInches, double weightPounds){
 
 policyNumber = policy;
 providerName = provider;
+policyHolder = new PolicyHolder(first, last, ageYears, smoking, heightInches, weightPounds);
 policyCount++;
+price = price();
 
 }
 
@@ -82,26 +87,36 @@ method for price calculation output
 */
 public double price(){
 
-if(getAge() > 50){
+if(policyHolder.getAge() > 50){
 
    price = price + 75; 
 
 }
 
-if(getSmokingStatus().equals("smoker")){
+if(policyHolder.getSmokingStatus().equals("smoker")){
 
    price = price + 100;
 
 }
 
-if(BMI() > 35){
+if(policyHolder.BMI() > 35){
 
-   price = price + ((BMI() - 35) * 20);
+   price = price + ((policyHolder.BMI() - 35) * 20);
 
 }
 
-return price
+return price;
 
+}
+
+/**
+method to return total amount of policies
+@return policyCount: the total amount of policies
+*/
+public static int policyCountTotal(){
+   
+return policyCount;
+   
 }
 
 /**
@@ -111,7 +126,7 @@ toString method
 @Override
 public String toString(){
    
-return "\n\nPolicy Number: " + policyNumber + "\nProvider Name: " + providerName + policyHolder.toString() + String.format("\nPolicy Price: $" + "%,.2f",price);
+return "\n\nPolicy Number: " + policyNumber + "\nProvider Name: " + providerName + policyHolder.toString() + String.format("\nPolicy Price: $" + "%,.2f",price());
    
 }
 

@@ -17,6 +17,7 @@ public PolicyHolder(){
    smokingStatus = "empty";
    height = 0.0;
    weight = 0.0;
+   bmi = BMI();
 
 }
 
@@ -28,6 +29,7 @@ public PolicyHolder(String first, String last, int ageYears, String smoking, dou
    smokingStatus = smoking;
    height = heightInches;
    weight = weightPounds;
+   bmi = BMI();
 
 }
 
@@ -157,7 +159,7 @@ Method for BMI calculation
 */
 public double BMI(){
 
-bmi = (weight * 703)/(height * height);
+bmi = (getWeight() * 703)/(getHeight() * getHeight());
 
 return bmi;
 
@@ -169,8 +171,7 @@ toString method
 */
 @Override
 public String toString(){
-   
-return  "\nPolicyholder’s First Name: " + firstName + "\nPolicyholder’s Last Name: " + lastName + "\nPolicyholder’s Age: " + age + "\nPolicyholder’s Smoking Status: " + smokingStatus + "\nPolicyholder’s Height: " + height + "\nPolicyholder’s Weight: " + weight + String.format("\nPolicyholder’s BMI: " + "%,.2f",bmi);
+return  "\nPolicyholder’s First Name: " + firstName + "\nPolicyholder’s Last Name: " + lastName + "\nPolicyholder’s Age: " + age + "\nPolicyholder’s Smoking Status: " + smokingStatus + "\nPolicyholder’s Height: " + height + "\nPolicyholder’s Weight: " + weight + String.format("\nPolicyholder’s BMI: " + "%,.2f", bmi);
 
 }
 
