@@ -4,12 +4,14 @@ public class Policy{
 private int policyNumber;
 private String providerName;
 private double price = 600;
+private static int policyCount = 0;
 
 //no-arg constructor
 public Policy(){
 
 policyNumber = 0;
 providerName = "empty";
+policyCount++;
 
 }
 
@@ -28,6 +30,7 @@ public Policy(int policy, String provider){
 
 policyNumber = policy;
 providerName = provider;
+policyCount++;
 
 }
 
